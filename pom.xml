@@ -129,4 +129,23 @@
 
     </build>
 
+    <inceptionYear>2011</inceptionYear>
+
+    <developers>
+        <developer>
+            <id>bhamail</id>
+            <name>Dan Rollo</name>
+            <email>danrollo@gmail.com</email>
+            <timezone>-4</timezone>
+        </developer>
+    </developers>
+
+    <licenses>
+        <license>
+            <name>The Apache Software License, Version 2.0</name>
+            <url>http://www.apache.org/licenses/LICENSE-2.0</url>
+            <distribution>repo</distribution>
+        </license>
+    </licenses>
+
 </project>
