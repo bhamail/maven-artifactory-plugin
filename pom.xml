@@ -17,6 +17,7 @@
     <scm>
         <url>https://github.com/bhamail/maven-artifactory-plugin</url>
         <connection>scm:git:git://github.com/bhamail/maven-artifactory-plugin.git</connection>
+        <developerConnection>scm:git:git@github.com/bhamail/maven-artifactory-plugin.git</developerConnection>
     </scm>
 
     <distributionManagement>
@@ -29,6 +30,10 @@
     <prerequisites>
         <maven>3</maven>
     </prerequisites>
+
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    </properties>
 
     <dependencies>
         <dependency>
