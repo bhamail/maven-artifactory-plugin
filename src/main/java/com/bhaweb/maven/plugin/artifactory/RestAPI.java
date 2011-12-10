@@ -4,6 +4,7 @@ import java.lang.reflect.Type;
 import java.net.URI;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.Arrays;
 import java.util.Date;
 
 /**
@@ -82,7 +83,7 @@ public class RestAPI {
         private FileInfo[] files;
 
         public FileInfo[] getFiles() {
-            return files;
+            return Arrays.copyOf(files, files.length);
         }
 
         public long getTotalSizeMB() {
