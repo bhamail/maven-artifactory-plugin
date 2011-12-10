@@ -2,7 +2,6 @@ package com.bhaweb.maven.plugin.artifactory;
 
 import java.lang.reflect.Type;
 import java.net.URI;
-import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -49,9 +48,8 @@ public class RestAPI {
             return lastModified;
         }
 
-        private static final DateFormat df = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.sssZ");
         public Date getLastModifiedDate() throws ParseException {
-            return df.parse(lastModified);
+            return new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.sssZ").parse(lastModified);
         }
 
         public boolean isFolder() {
