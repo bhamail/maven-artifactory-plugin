@@ -23,7 +23,7 @@
     <distributionManagement>
         <site>
             <id>github-project-site</id>
-            <url>gitsite:git@github.com:bhamail/maven-artifactory-plugin.git</url>
+            <url>gitsite:git@github.com/bhamail/maven-artifactory-plugin.git</url>
         </site>
     </distributionManagement>
 
