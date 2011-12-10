@@ -19,6 +19,13 @@
         <connection>scm:git:git://github.com/bhamail/maven-artifactory-plugin.git</connection>
     </scm>
 
+    <distributionManagement>
+        <site>
+            <id>github-project-site</id>
+            <url>gitsite:git@github.com:bhamail/maven-artifactory-plugin.git</url>
+        </site>
+    </distributionManagement>
+
     <prerequisites>
         <maven>3</maven>
     </prerequisites>
@@ -80,7 +87,39 @@
                         </execution>
                     </executions>
                 </plugin>
+
+<!--
+                <plugin>
+                    <groupId>org.kathrynhuxtable.maven.wagon</groupId>
+                    <artifactId>wagon-gitsite</artifactId>
+                    <version>0.3.1</version>
+                </plugin>
+-->
             </plugins>
         </pluginManagement>
+
+
+        <!-- BEGIN: extensions supporting 'gitsite' wagon, to publish maven site to git hub pages. -->
+        <extensions>
+            <extension>
+                <groupId>org.apache.maven.scm</groupId>
+                <artifactId>maven-scm-provider-gitexe</artifactId>
+                <version>1.3</version>
+            </extension>
+            <extension>
+                <groupId>org.apache.maven.scm</groupId>
+                <artifactId>maven-scm-manager-plexus</artifactId>
+                <version>1.3</version>
+            </extension>
+            <extension>
+                <groupId>org.kathrynhuxtable.maven.wagon</groupId>
+                <artifactId>wagon-gitsite</artifactId>
+                <version>0.3.1</version>
+                <!--<version>0.4-SNAPSHOT</version>-->
+            </extension>
+        </extensions>
+        <!-- END: extensions supporting 'gitsite' wagon, to publish maven site to git hub pages. -->
+
     </build>
+
 </project>
