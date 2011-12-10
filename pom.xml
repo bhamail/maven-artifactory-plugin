@@ -12,6 +12,8 @@
 
     <name>Maven Plugin to call Artifactory Rest API</name>
 
+    <description>Plugin to dump Artifactory repository contents info using the published Rest API. Pre-Alpha!</description>
+
     <url>http://bhamail.github.com/maven-artifactory-plugin</url>
 
     <scm>
