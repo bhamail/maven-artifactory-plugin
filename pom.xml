@@ -35,6 +35,8 @@
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+
+        <targetJavaVersion>1.5</targetJavaVersion>
     </properties>
 
     <dependencies>
@@ -83,6 +85,90 @@
         <pluginManagement>
             <plugins>
                 <plugin>
+                    <artifactId>maven-clean-plugin</artifactId>
+                    <version>2.4.1</version>
+                </plugin>
+
+                <plugin>
+                    <artifactId>maven-resources-plugin</artifactId>
+                    <version>2.5</version>
+                </plugin>
+
+                <plugin>
+                    <artifactId>maven-toolchains-plugin</artifactId>
+                    <version>1.0</version>
+                </plugin>
+
+                <plugin>
+                    <artifactId>maven-compiler-plugin</artifactId>
+                    <version>2.3.2</version>
+                </plugin>
+
+                <plugin>
+                    <artifactId>maven-surefire-plugin</artifactId>
+                    <version>2.10</version>
+                </plugin>
+
+                <plugin>
+                    <artifactId>maven-jar-plugin</artifactId>
+                    <version>2.3.2</version>
+                </plugin>
+
+                <plugin>
+                    <artifactId>maven-source-plugin</artifactId>
+                    <version>2.1.2</version>
+                </plugin>
+
+                <plugin>
+                    <artifactId>maven-install-plugin</artifactId>
+                    <version>2.3.1</version>
+                </plugin>
+
+                <plugin>
+                    <artifactId>maven-deploy-plugin</artifactId>
+                    <version>2.7</version>
+                </plugin>
+
+<!--
+                <plugin>
+                    <artifactId>maven-assembly-plugin</artifactId>
+                    <version>2.2.1</version>
+                </plugin>
+
+-->
+                <plugin>
+                    <artifactId>maven-dependency-plugin</artifactId>
+                    <version>2.3</version>
+                </plugin>
+
+<!--
+                <plugin>
+                    <artifactId>maven-antrun-plugin</artifactId>
+                    <version>1.6</version>
+                </plugin>
+-->
+
+<!--
+                <plugin>
+                    <artifactId>maven-enforcer-plugin</artifactId>
+                    <version>1.0.1</version>
+                </plugin>
+-->
+
+                <plugin>
+                    <artifactId>maven-release-plugin</artifactId>
+                    <version>2.2.1</version>
+                </plugin>
+
+                <plugin>
+                    <groupId>com.mycila.maven-license-plugin</groupId>
+                    <artifactId>maven-license-plugin</artifactId>
+                    <version>1.10.b1</version>
+                </plugin>
+
+
+                <!-- begin: Reporting plugins -->
+                <plugin>
                     <artifactId>maven-site-plugin</artifactId>
                     <version>3.0</version>
                     <executions>
@@ -95,13 +181,68 @@
                     </executions>
                 </plugin>
 
-<!--
                 <plugin>
-                    <groupId>org.kathrynhuxtable.maven.wagon</groupId>
-                    <artifactId>wagon-gitsite</artifactId>
-                    <version>0.3.1</version>
+                    <artifactId>maven-project-info-reports-plugin</artifactId>
+                    <version>2.4</version>
                 </plugin>
--->
+
+                <plugin>
+                    <artifactId>maven-javadoc-plugin</artifactId>
+                    <version>2.8</version>
+                </plugin>
+
+                <plugin>
+                    <artifactId>maven-jxr-plugin</artifactId>
+                    <version>2.3</version>
+                </plugin>
+
+                <plugin>
+                    <artifactId>maven-pmd-plugin</artifactId>
+                    <version>2.5</version>
+                    <configuration>
+                        <targetJdk>${targetJavaVersion}</targetJdk>
+                    </configuration>
+                </plugin>
+
+                <plugin>
+                    <artifactId>maven-surefire-report-plugin</artifactId>
+                    <version>2.10</version>
+                </plugin>
+
+                <plugin>
+                    <artifactId>maven-checkstyle-plugin</artifactId>
+                    <version>2.8</version>
+                </plugin>
+
+                <plugin>
+                    <groupId>org.codehaus.mojo</groupId>
+                    <artifactId>cobertura-maven-plugin</artifactId>
+                    <version>2.5.1</version>
+                </plugin>
+
+                <plugin>
+                    <groupId>org.codehaus.mojo</groupId>
+                    <artifactId>versions-maven-plugin</artifactId>
+                    <version>1.2</version>
+                </plugin>
+
+                <plugin>
+                    <groupId>org.codehaus.mojo</groupId>
+                    <artifactId>findbugs-maven-plugin</artifactId>
+                    <version>2.3.2</version>
+                </plugin>
+
+                <plugin>
+                    <artifactId>maven-changelog-plugin</artifactId>
+                    <version>2.2</version>
+                </plugin>
+
+                <plugin>
+                    <artifactId>maven-plugin-plugin</artifactId>
+                    <version>2.9</version>
+                </plugin>
+                <!-- end: Reporting plugins -->
+
             </plugins>
         </pluginManagement>
 
@@ -129,6 +270,92 @@
         </extensions>
         <!-- END: extensions supporting 'gitsite' wagon, to publish maven site to git hub pages. -->
 
+        <plugins>
+            <plugin>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <configuration>
+                    <source>${targetJavaVersion}</source>
+                    <target>${targetJavaVersion}</target>
+                </configuration>
+            </plugin>
+
+            <plugin>
+                <artifactId>maven-site-plugin</artifactId>
+                <configuration>
+                    <reportPlugins>
+                        <plugin>
+                            <artifactId>maven-project-info-reports-plugin</artifactId>
+                            <!--<version>2.4</version>-->
+                        </plugin>
+
+                        <plugin>
+                            <artifactId>maven-javadoc-plugin</artifactId>
+                            <configuration>
+                                <quiet>true</quiet>
+
+                                <!-- avoid javadoc warnings from mojo tags -->
+                                <tagletArtifacts>
+                                    <tagletArtifact>
+                                        <groupId>org.apache.maven.plugin-tools</groupId>
+                                        <artifactId>maven-plugin-tools-javadoc</artifactId>
+                                        <version>2.9</version>
+                                    </tagletArtifact>
+                                </tagletArtifacts>
+                            </configuration>
+                        </plugin>
+
+                        <plugin>
+                            <artifactId>maven-jxr-plugin</artifactId>
+                        </plugin>
+
+                        <plugin>
+                            <artifactId>maven-pmd-plugin</artifactId>
+                            <configuration>
+                                <targetJdk>${targetJavaVersion}</targetJdk>
+                            </configuration>
+                        </plugin>
+
+                        <plugin>
+                            <artifactId>maven-surefire-report-plugin</artifactId>
+                        </plugin>
+
+                        <plugin>
+                            <artifactId>maven-checkstyle-plugin</artifactId>
+                        </plugin>
+
+                        <plugin>
+                            <groupId>org.codehaus.mojo</groupId>
+                            <artifactId>cobertura-maven-plugin</artifactId>
+                        </plugin>
+
+<!--                    @todo Figure out why this is causing NPE
+                        <plugin>
+                            <artifactId>maven-changelog-plugin</artifactId>
+                        </plugin>
+-->
+
+                        <plugin>
+                            <groupId>org.codehaus.mojo</groupId>
+                            <artifactId>findbugs-maven-plugin</artifactId>
+                        </plugin>
+
+                        <plugin>
+                            <groupId>org.codehaus.mojo</groupId>
+                            <artifactId>versions-maven-plugin</artifactId>
+                            <reportSets>
+                                <reportSet>
+                                    <reports>
+                                        <report>dependency-updates-report</report>
+                                        <report>plugin-updates-report</report>
+                                        <report>property-updates-report</report>
+                                    </reports>
+                                </reportSet>
+                            </reportSets>
+                        </plugin>
+                    </reportPlugins>
+                </configuration>
+            </plugin>
+        </plugins>
     </build>
 
     <inceptionYear>2011</inceptionYear>
