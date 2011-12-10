@@ -10,9 +10,18 @@
 
     <version>1.0-SNAPSHOT</version>
 
-    <name>Maven Mojo to call Artifactory Rest API</name>
+    <name>Maven Plugin to call Artifactory Rest API</name>
 
-    <url>http://maven.apache.org</url>
+    <url>http://bhamail.github.com/maven-artifactory-plugin</url>
+
+    <scm>
+        <url>https://github.com/bhamail/maven-artifactory-plugin</url>
+        <connection>scm:git:git://github.com/bhamail/maven-artifactory-plugin.git</connection>
+    </scm>
+
+    <prerequisites>
+        <maven>3</maven>
+    </prerequisites>
 
     <dependencies>
         <dependency>
@@ -56,4 +65,22 @@
 
     </dependencies>
 
+    <build>
+        <pluginManagement>
+            <plugins>
+                <plugin>
+                    <artifactId>maven-site-plugin</artifactId>
+                    <version>3.0</version>
+                    <executions>
+                        <execution>
+                            <id>attach-descriptor</id>
+                            <goals>
+                                <goal>attach-descriptor</goal>
+                            </goals>
+                        </execution>
+                    </executions>
+                </plugin>
+            </plugins>
+        </pluginManagement>
+    </build>
 </project>
