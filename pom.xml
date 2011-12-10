@@ -99,7 +99,9 @@
         </pluginManagement>
 
 
-        <!-- BEGIN: extensions supporting 'gitsite' wagon, to publish maven site to git hub pages. -->
+        <!-- BEGIN: extensions supporting 'gitsite' wagon, to publish maven site to git hub pages.
+        See: http://khuxtable.github.com/wagon-gitsite/usage.html
+        -->
         <extensions>
             <extension>
                 <groupId>org.apache.maven.scm</groupId>
