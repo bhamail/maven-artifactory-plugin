@@ -1,0 +1,1 @@
+This is the gh-pages site for the project git:git@github.com/bhamail/maven-artifactory-plugin.git
