@@ -15,5 +15,8 @@ my initial gh-pages setup commands:
   541  git push origin gh-pages
 
 
+Deploy the site to gh-pages by running:
+mvn site-deploy
+
 The resulting site is published here:
 http://bhamail.github.com/maven-artifactory-plugin/
