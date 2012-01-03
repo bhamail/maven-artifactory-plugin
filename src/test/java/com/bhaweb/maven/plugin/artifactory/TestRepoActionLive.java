@@ -32,6 +32,9 @@ public final class TestRepoActionLive extends TestCase {
     /** Server <id> tag in settings.xml file, read from test.properties file. */
     private static String serverID;
 
+    /** A live Repository name read from test.properties file. */
+    private static String repoName;
+
     private String username;
     private String password;
 
@@ -41,6 +44,7 @@ public final class TestRepoActionLive extends TestCase {
         final Properties testProps = loadTestProperties();
         repoURL = testProps.getProperty("repoURL");
         serverID = testProps.getProperty("serverID");
+        repoName = testProps.getProperty("repoName");
 
         mojo = new RepoAction();
 
@@ -56,7 +60,7 @@ public final class TestRepoActionLive extends TestCase {
         if ("http://<your live artifactory server>/".equals(repoURL)) {
             if (null != testName) {
                 System.err.println("***   Skipping Live Server TEST: " + testName
-                        + " - provide 'repoURL' and 'serverID' in test.properties file.");
+                        + " - provide 'repoURL', 'serverID', and 'repoName' in test.properties file.");
             }
             return true;
         }
@@ -137,7 +141,7 @@ public final class TestRepoActionLive extends TestCase {
         final RestAPI.OPERATION op = RestAPI.OPERATION.LIST;
         mojo.setApiURL(op.getApiURL());
 
-        mojo.setRepoName("libs-releases-local");
+        mojo.setRepoName(repoName);
 
         mojo.setOperation(op.getOpName());
 
@@ -153,7 +157,7 @@ public final class TestRepoActionLive extends TestCase {
 
         System.out.println(mojo.getRepoName() + mojo.getResult());
 
-        mojo.setRepoName("libs-snapshots-local");
+        mojo.setRepoName(repoName);
         System.out.println(mojo.getRepoName() + mojo.getResult());
     }
 
