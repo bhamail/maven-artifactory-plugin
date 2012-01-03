@@ -14,3 +14,6 @@ my initial gh-pages setup commands:
   540  git commit -a -m "First pages commit"
   541  git push origin gh-pages
 
+
+The resulting site is published here:
+http://bhamail.github.com/maven-artifactory-plugin/
