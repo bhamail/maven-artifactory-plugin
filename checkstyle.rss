@@ -6,7 +6,7 @@
     <link>http://bhamail.github.com/maven-artifactory-plugin</link>
     <description>Maven Plugin to call Artifactory Rest API - Checkstyle report</description>
     <language>en-us</language>
-    <copyright>&#169;2011 - 2012</copyright>
+    <copyright>&#169;2011 - 2013</copyright>
     <item>
       <title>File: 2,
              Errors: 203,
@@ -38,7 +38,7 @@
                   0
                 </td>
                 <td>
-                  85
+                  84
                 </td>
               </tr>
                           <tr>
@@ -52,7 +52,7 @@
                   0
                 </td>
                 <td>
-                  118
+                  119
                 </td>
               </tr>
                       </tbody>
